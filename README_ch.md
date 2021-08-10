@@ -1,6 +1,6 @@
 [English](https://github.com/dbchaincloud/js-client/blob/master/README.md)
 
-# 库链 js-client
+# sm-dbChain-js-client
 
 ---
 
