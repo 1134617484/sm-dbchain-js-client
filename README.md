@@ -6,6 +6,8 @@
 
 dbChain js-client is the JavaScript implementation of the client side library of dbChain, the blockchain database. With the js-client, developers can quickly start a dbChain application in minutes.
 
+The SM-dbchain-js-client uses SM2 encryption and has the same function as the DBchain-js-client
+
 The js-client provides JavaScript functions for
 
 - Generating mnemonic and private/public key pairs 
@@ -18,17 +20,19 @@ The js-client provides JavaScript functions for
 - Inserting a row into a table
 - Retrieving all rows of a table
 - Searching for rows contain certain field value
- 
+
 ## Install
 
+If you are using scaffolding such as Webpack, the user can either clone the project code directly into the node_modules project or install the NPM package directly
+
 ```shell
-yarn add dbchain-js-client
+yarn add sm-dbchain-js-client
 ```
 
 or
 
 ```shell
-npm install --save dbchain-js-client
+npm install --save sm-dbchain-js-client
 ```
 
 
@@ -36,7 +40,7 @@ npm install --save dbchain-js-client
 
 #### Generating mnemonic and private/public key pais
 ```javascript
-import { newMnemonic, createAndStoreKey } from "dbchain-js-client";
+import { newMnemonic, createAndStoreKey } from "sm-dbchain-js-client";
 
 const mnemonic = newMnemonic();
 // brown deliver ignore estate adjust pond final inject wear return sword silent
@@ -46,7 +50,7 @@ createAndStoreKey(mnemonic, passphrase)
 
 #### Checking whether key exists
 ```javascript
-import { hasKey } from 'dbchain-js-client;
+import { hasKey } from 'sm-dbchain-js-client;
 if(!hasKey()) {
   console.log("User needs to generate and save key pairs")
 }
@@ -54,7 +58,7 @@ if(!hasKey()) {
 
 #### Accessing passphrase
 ```javascript
-import { hasPassphrase, savePassphrase } from 'dbchain-js-client;
+import { hasPassphrase, savePassphrase } from 'sm-dbchain-js-client;
 
 if(!hasPassphrase()) {
   console.log("User needs to input passphrase");
@@ -71,7 +75,7 @@ if (savePassphrase(passphrase)) {
 
 #### Retrieving list of tables of a database
 ```javascript
-import { getTables } from "dbchain-js-client";
+import { getTables } from "sm-dbchain-js-client";
 
 const appCode = "DJ1PGEQ45A";
 const tables = await getTables(appCode);
@@ -86,7 +90,7 @@ const tables = await getTables(appCode);
 
 #### Retrieving the options of a table
 ```javascript
-import { getTableOptions } from "dbchain-js-client";
+import { getTableOptions } from "sm-dbchain-js-client";
 
 const appCode = "DJ1PGEQ45A";
 const tableName = "supplier";
@@ -100,7 +104,7 @@ const options = await getTableOptions(appCode, tableName);
 
 #### Retrieving columns of a table
 ```javascript
-import { getTable } from "dbchain-js-client";
+import { getTable } from "sm-dbchain-js-client";
 
 const appCode = "DJ1PGEQ45A";
 const tableName = "supplier";
@@ -115,7 +119,7 @@ const options = await getTable(appCode, tableName);
 ```
 #### Retrieving options of a column
 ```javascript
-import { getFieldOptions } from "dbchain-js-client";
+import { getFieldOptions } from "sm-dbchain-js-client";
 
 const appCode = "DJ1PGEQ45A";
 const tableName = "supplier";
@@ -129,7 +133,7 @@ const options = await getFieldOptions(appCode, tableName, fieldName);
 ```
 #### Inserting a row into a table
 ```javascript
-import { insertRow } from "dbchain-js-client";
+import { insertRow } from "sm-dbchain-js-client";
 
 const appCode = "DJ1PGEQ45A";
 const tableName = "supplier";
@@ -146,7 +150,7 @@ const options = await insertRow(appCode, tableName, record, function() {
 
 #### Retrieving id of all rows in a table
 ```javascript
-import { getAllIds } from "dbchain-js-client";
+import { getAllIds } from "sm-dbchain-js-client";
 
 const appCode = "DJ1PGEQ45A";
 const tableName = "supplier";
@@ -163,7 +167,7 @@ const ids = await getAllIds(appCode, tableName);
 
 #### Retrieving a row from a table
 ```javascript
-import { getRow } from "dbchain-js-client";
+import { getRow } from "sm-dbchain-js-client";
 
 const appCode = "DJ1PGEQ45A";
 const tableName = "supplier";
